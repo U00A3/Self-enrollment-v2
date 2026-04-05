@@ -1,0 +1,22 @@
+# systemd unit for Redbelly DAO backend
+# Install: sudo cp redbelly-dao-backend.service /etc/systemd/system/
+#         sudo systemctl daemon-reload
+#         sudo systemctl enable redbelly-dao-backend
+# Start:   sudo systemctl start redbelly-dao-backend
+# Status:  sudo systemctl status redbelly-dao-backend
+
+[Unit]
+Description=Redbelly DAO Backend (MembershipRegistry API)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/redbelly-dao-onboard/backend
+EnvironmentFile=/root/redbelly-dao-onboard/backend/.env
+ExecStart=/usr/bin/node src/index.js
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,19 @@
+{
+  "name": "redbelly-dao-onboard",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat compile && node scripts/deploy.js",
+    "verify": "hardhat verify --network default",
+    "flatten": "hardhat flatten contracts/MembershipRegistry.sol > contracts/MembershipRegistry_flat.sol"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.1.3",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.9.0",
+    "hardhat": "^2.19.0",
+    "solc": "^0.8.20"
+  }
+}

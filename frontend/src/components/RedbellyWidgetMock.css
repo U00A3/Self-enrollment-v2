@@ -1,0 +1,443 @@
+.redbelly-widget-container {
+  max-width: 500px;
+  margin: 30px auto;
+  background: linear-gradient(145deg, #ECEBEC 0%, #D9D9D9 100%);
+  border-radius: 16px;
+  box-shadow:
+    0 8px 32px rgba(20, 37, 48, 0.4),
+    0 0 0 1px rgba(250, 66, 60, 0.1);
+  overflow: visible;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  position: relative;
+}
+
+.redbelly-widget-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FA423C 0%, #ff5a54 50%, #FA423C 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.redbelly-widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #142530 0%, #1a2f42 50%, #142530 100%);
+  color: #ECEBEC;
+  position: relative;
+  overflow: hidden;
+}
+
+.redbelly-flow-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ECEBEC;
+  letter-spacing: 0.3px;
+}
+
+.redbelly-widget-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(250, 66, 60, 0.2), transparent);
+  animation: slide 3s infinite;
+}
+
+@keyframes slide {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.redbelly-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.redbelly-logo svg {
+  filter: drop-shadow(0 0 8px rgba(250, 66, 60, 0.5));
+}
+
+.redbelly-toggle-btn {
+  background: rgba(250, 66, 60, 0.2);
+  border: 1px solid rgba(250, 66, 60, 0.3);
+  color: #ECEBEC;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Ripple pulse on expand button when widget is collapsed – draws attention */
+.redbelly-toggle-btn--pulse {
+  overflow: visible;
+}
+.redbelly-toggle-btn--pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(250, 66, 60, 0.7);
+  animation: redbelly-ripple 3s ease-out infinite;
+  animation-delay: 1s;
+  pointer-events: none;
+}
+
+@keyframes redbelly-ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.redbelly-toggle-btn:hover {
+  background: rgba(250, 66, 60, 0.4);
+  border-color: #FA423C;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(250, 66, 60, 0.3);
+}
+
+.redbelly-widget-content {
+  padding: 28px;
+  background: linear-gradient(145deg, #ECEBEC 0%, #D9D9D9 100%);
+}
+
+.redbelly-app-name {
+  font-size: 14px;
+  color: #848B91;
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.redbelly-step-initial {
+  text-align: center;
+}
+
+.redbelly-requirement {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px;
+  background: linear-gradient(135deg, #ECEBEC 0%, #D9D9D9 100%);
+  border: 2px solid rgba(250, 66, 60, 0.2);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(20, 37, 48, 0.1);
+  transition: all 0.3s;
+}
+
+.redbelly-requirement:hover {
+  border-color: rgba(250, 66, 60, 0.4);
+  box-shadow: 0 6px 20px rgba(20, 37, 48, 0.15);
+  transform: translateY(-2px);
+}
+
+.redbelly-requirement-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FA423C 0%, #ff5a54 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(250, 66, 60, 0.4);
+}
+
+.redbelly-requirement-text {
+  flex: 1;
+}
+
+.redbelly-requirement-title {
+  font-weight: 600;
+  color: #142530;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.redbelly-requirement-desc {
+  font-size: 13px;
+  color: #848B91;
+  line-height: 1.5;
+}
+
+.redbelly-primary-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #FA423C 0%, #ff5a54 50%, #FA423C 100%);
+  background-size: 200% 100%;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(250, 66, 60, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.redbelly-primary-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.redbelly-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(250, 66, 60, 0.5);
+  background-position: 100% 0;
+}
+
+.redbelly-primary-btn:hover::before {
+  left: 100%;
+}
+
+.redbelly-primary-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(250, 66, 60, 0.4);
+}
+
+.redbelly-secondary-btn {
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(145deg, #ECEBEC 0%, #D9D9D9 100%);
+  color: #142530;
+  border: 2px solid #FA423C;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 16px;
+  box-shadow: 0 2px 8px rgba(20, 37, 48, 0.1);
+}
+
+.redbelly-secondary-btn:hover {
+  background: linear-gradient(145deg, #D9D9D9 0%, #ECEBEC 100%);
+  border-color: #ff5a54;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(250, 66, 60, 0.2);
+}
+
+.redbelly-info {
+  margin-top: 16px;
+  text-align: center;
+  color: #848B91;
+  font-size: 12px;
+}
+
+.redbelly-step-loading {
+  text-align: center;
+  padding: 50px 20px;
+  overflow: visible;
+}
+
+.redbelly-spinner {
+  display: block;
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  position: relative;
+  overflow: hidden;
+  background: conic-gradient(
+    from 0deg,
+    #FA423C 0deg,
+    #ff5a54 120deg,
+    #ff7a75 240deg,
+    #ff5a54 360deg
+  );
+  animation: spin 0.9s linear infinite;
+  box-shadow: 0 0 24px rgba(250, 66, 60, 0.5);
+}
+
+.redbelly-spinner::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ECEBEC 0%, #D9D9D9 100%);
+  z-index: 1;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.redbelly-step-loading p {
+  color: #142530;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.redbelly-step-loading small {
+  color: #848B91;
+  font-size: 13px;
+}
+
+.redbelly-step-success {
+  text-align: center;
+  padding: 24px;
+}
+
+.redbelly-success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0 auto 24px;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.redbelly-step-success h3 {
+  color: #142530;
+  margin-bottom: 24px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.redbelly-success-details {
+  background: linear-gradient(145deg, #ECEBEC 0%, #D9D9D9 100%);
+  border: 2px solid rgba(250, 66, 60, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(20, 37, 48, 0.1);
+}
+
+.redbelly-success-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(132, 139, 145, 0.2);
+}
+
+.redbelly-success-item:last-child {
+  border-bottom: none;
+}
+
+.redbelly-label {
+  color: #848B91;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.redbelly-value {
+  font-weight: 600;
+  color: #142530;
+  font-size: 15px;
+}
+
+.redbelly-value-success {
+  color: #10b981;
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.redbelly-step-error {
+  text-align: center;
+  padding: 24px;
+}
+
+.redbelly-error-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FA423C 0%, #ff5a54 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0 auto 24px;
+  box-shadow: 0 8px 24px rgba(250, 66, 60, 0.4);
+  animation: shake 0.5s ease-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.redbelly-step-error h3 {
+  color: #142530;
+  margin-bottom: 12px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.redbelly-step-error p {
+  color: #848B91;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
